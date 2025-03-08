@@ -7,9 +7,8 @@ class WordSearch
     public char[][]? board;
     public string word = "";
 
-    public bool Exist(char[][] boardh, string wordh)
+    public bool Exists(char[][] boardh, string wordh)
     {
-        board = boardh;
         word = wordh;
 
 
@@ -19,22 +18,17 @@ class WordSearch
             {
                 if (worked)
                     break;
-                Procura(l, c, "", []);
+                Procura(l, c, "", boardh);
             }
         }
         return worked;
     }
-    public void Procura(int l, int c, string? posicaoAnterior, int[][] posicoesUtilizadas)
+    public void Procura(int l, int c, string? posicaoAnterior, char[][] board)
     {
         if (worked)
             return;
 
-        if (posicoesUtilizadas.Any(x => x.SequenceEqual([l, c])))
-        {
-            return;
-        }
-
-        posicoesUtilizadas = [.. posicoesUtilizadas, [l, c]];
+        board[l][c] = '';
         char singleWord = word[indexWord];
         char wordBoard = board[l][c];
         if (singleWord == wordBoard)
