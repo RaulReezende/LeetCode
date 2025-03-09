@@ -28,12 +28,9 @@ class WordSearch
             return;
 
 
-        char[][] copyBoard = board.Select(x => x.ToArray()).ToArray();
-
         char singleWord = word[indexWord];
-        char wordBoard = copyBoard[l][c];
+        char wordBoard = board[l][c];
 
-        copyBoard[l][c] = ' ';
 
         if (singleWord == wordBoard)
         {
@@ -42,7 +39,9 @@ class WordSearch
                 worked = true;
                 return;
             }
-
+        
+            
+            board[l][c] = ' ';
             indexWord++;
 
             int cima = l - 1;
@@ -52,22 +51,23 @@ class WordSearch
 
             if (cima >= 0 && posicaoAnterior != "baixo")
             {
-                Procura(cima, c, "cima", copyBoard);
+                Procura(cima, c, "cima", board);
             }
             if (direita <= board[0].Length - 1 && posicaoAnterior != "esquerda")
             {
-                Procura(l, direita, "direita", copyBoard);
+                Procura(l, direita, "direita", board);
             }
             if (baixo <= board.Length - 1 && posicaoAnterior != "cima")
             {
-                Procura(baixo, c, "baixo", copyBoard);
+                Procura(baixo, c, "baixo", board);
             }
             if (esquerda >= 0 && posicaoAnterior != "direita")
             {
-                Procura(l, esquerda, "esquerda", copyBoard);
+                Procura(l, esquerda, "esquerda", board);
             }
 
             indexWord--;
+            board[l][c] = word[indexWord];
         }
 
         return;
