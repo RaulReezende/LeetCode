@@ -1,2 +1,9 @@
 ﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+using LeetCode._79;
+
+char[][] board = [['A', 'B'], ['C', 'D']];
+string word = "ACDB";
+
+WordSearch ws = new();
+
+Console.WriteLine(ws.Exist(board, word));
