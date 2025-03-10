@@ -30,18 +30,17 @@ class WordSearchRefactor
 
         board[row][col] = ' ';
 
-        var directions = new (int, int)[]
-        {
+        (int, int)[] directions =
+        [
             (0, 1),
             (1, 0), 
             (0, -1), 
             (-1, 0)
-
-        };
+        ];
 
         foreach(var dir in directions)
         {
-            var res = backtrack(board, n_rows, n_cols, row+dir.Item1, col+dir.Item2, suffix[1..]);
+            bool res = backtrack(board, n_rows, n_cols, row+dir.Item1, col+dir.Item2, suffix[1..]);
 
 
             if (res)

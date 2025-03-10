@@ -4,6 +4,6 @@ using LeetCode._79;
 char[][] board = [['A', 'B'], ['C', 'D']];
 string word = "ACDB";
 
-WordSearch ws = new();
+WordSearchRefactor ws = new();
 
-Console.WriteLine(ws.Exist(board, word));
+Console.WriteLine(ws.exist(board, word));
