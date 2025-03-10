@@ -17,12 +17,12 @@ class WordSearch
             {
                 if (worked)
                     break;
-                Procura(l, c, "", board);
+                Procura(l, c, Posicao.vazio, board);
             }
         }
         return worked;
     }
-    public void Procura(int l, int c, string? posicaoAnterior, char[][] board)
+    public void Procura(int l, int c, Posicao posicaoAnterior, char[][] board)
     {
         if (worked)
             return;
@@ -49,21 +49,21 @@ class WordSearch
             int baixo = l + 1;
             int esquerda = c - 1;
 
-            if (cima >= 0 && posicaoAnterior != "baixo")
+            if (cima >= 0 && posicaoAnterior != Posicao.baixo)
             {
-                Procura(cima, c, "cima", board);
+                Procura(cima, c, Posicao.cima, board);
             }
-            if (direita <= board[0].Length - 1 && posicaoAnterior != "esquerda")
+            if (direita <= board[0].Length - 1 && posicaoAnterior != Posicao.esquerda)
             {
-                Procura(l, direita, "direita", board);
+                Procura(l, direita, Posicao.direita, board);
             }
-            if (baixo <= board.Length - 1 && posicaoAnterior != "cima")
+            if (baixo <= board.Length - 1 && posicaoAnterior != Posicao.cima)
             {
-                Procura(baixo, c, "baixo", board);
+                Procura(baixo, c, Posicao.baixo, board);
             }
-            if (esquerda >= 0 && posicaoAnterior != "direita")
+            if (esquerda >= 0 && posicaoAnterior != Posicao.direita)
             {
-                Procura(l, esquerda, "esquerda", board);
+                Procura(l, esquerda, Posicao.esquerda, board);
             }
 
             indexWord--;
@@ -72,4 +72,13 @@ class WordSearch
 
         return;
     }
+}
+
+enum Posicao
+{
+    vazio,
+    baixo,
+    esquerda,
+    cima,
+    direita
 }
