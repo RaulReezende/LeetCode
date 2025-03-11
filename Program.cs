@@ -1,9 +1,9 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using LeetCode._79;
+using LeetCode._1;
 
-char[][] board = [['A', 'B'], ['C', 'D']];
-string word = "ACDB";
+TwoSumClass ws = new();
+int[] nums = [0, 4, 3, 0];
+int target = 0;
 
-WordSearchRefactor ws = new();
-
-Console.WriteLine(ws.exist(board, word));
+Console.WriteLine(ws.TwoSum(nums, target));
