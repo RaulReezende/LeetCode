@@ -40,7 +40,7 @@ public class TwoSumClass
         }
         else
         {
-        res = [Array.IndexOf(nums, res[0]), Array.IndexOf(nums, res[1])];
+            res = [Array.IndexOf(nums, res[0]), Array.IndexOf(nums, res[1])];
         }
             return res;
     }
